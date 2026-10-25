@@ -11,12 +11,17 @@ const isProduction = process.env.NODE_ENV === "production";
 const config = {
     // The page itself is the entry: webpack bundles the scripts and stylesheets
     // it references and emits it as `dist/index.html`.
-    entry: { index: "./index.html" },
+    entry: { 
+        health: "./index.html" ,
+        fabrica: "./src/plan.js"
+    },
     output: {
         path: path.resolve(__dirname, "dist"),
     },
     devServer: {
-        open: true,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+        },
     },
     plugins: [
         // Add your plugins here
